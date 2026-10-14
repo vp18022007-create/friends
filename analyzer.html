@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>SHIBBOLETHS STRENGTH ANALYZER TOOL</title>
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>SHIBBOLETHS STRENGTH ANALYZER TOOL</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      position: relative;
+    }
+    .Bottum {
+      position: absolute;
+      bottom: 0;   /* stick to bottom */
+      right: 0;    /* stick to right */
+    }
+    .Bottum img {
+      width: 1000px; /* adjust size as needed */
+    }
+  </style>
+</head>
+<body>
+  <div class="Bottum">
+    <img src="add image/pradeep1.png" alt="Analyzer Tool">
+  </div>
+</body>
+</html>
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    input { padding: 10px; width: 300px; margin-bottom: 10px; }
+    .condition { margin: 5px 0; }
+    .valid { color: green; }
+    .invalid { color: red; }
+    #suggestions { margin-top: 15px; color: blue; }
+    button { margin-top: 10px; padding: 10px 20px; }
+  </style>
+</head>
+<body>
+  <h2>SHIBBOLETHS STRENGTH ANALYZER TOOL</h2>
+
+  <!-- User Information -->
+  <h3>User Information:</h3>
+  <input type="text" id="firstName" placeholder="Enter your first name"><br>
+  <input type="text" id="middleName" placeholder="Enter your middle name"><br>
+  <input type="text" id="lastName" placeholder="Enter your last name"><br>
+
+  <!-- Password Input -->
+  <h3>Password:</h3>
+  <input type="password" id="password" placeholder="Enter your password">
+  
+  <h3>Conditions:</h3>
+  <div id="length" class="condition">Password must be at least 8 characters long</div>
+  <div id="uppercase" class="condition">Password must contain an uppercase letter</div>
+  <div id="lowercase" class="condition">Password must contain a lowercase letter</div>
+  <div id="special" class="condition">Password must contain a special character (!@#$%^&*)</div>
+
+  <h3>Password Strength:</h3>
+  <div id="strength">Type a password to check...</div>
+
+  <h3>Suggestions:</h3>
+  <div id="suggestions">Start typing to see suggestions...</div>
+
+  <!-- Random Password Generator -->
+  <button onclick="generatePassword()">Suggest a Strong Password</button>
+  <div id="randomPassword"></div>
+
+  <script>
+    const passwordInput = document.getElementById("password");
+    const strengthText = document.getElementById("strength");
+    const suggestions = document.getElementById("suggestions");
+    const randomPasswordDiv = document.getElementById("randomPassword");
+
+    passwordInput.addEventListener("input", function() {
+      const password = passwordInput.value;
+
+      // Conditions
+      const length = password.length >= 8;
+      const uppercase = /[A-Z]/.test(password);
+      const lowercase = /[a-z]/.test(password);
+      const special = /[^A-Za-z0-9]/.test(password);
+
+      // Update condition display
+      document.getElementById("length").className = length ? "condition valid" : "condition invalid";
+      document.getElementById("uppercase").className = uppercase ? "condition valid" : "condition invalid";
+      document.getElementById("lowercase").className = lowercase ? "condition valid" : "condition invalid";
+      document.getElementById("special").className = special ? "condition valid" : "condition invalid";
+
+      // Strength calculation
+      let strength = 0;
+      if (length) strength++;
+      if (uppercase) strength++;
+      if (lowercase) strength++;
+      if (special) strength++;
+
+      const levels = ["Very Weak", "Weak", "Fair", "Good", "Strong"];
+      const emojis = ["😞", "😞", "😐", "🙂", "😊"]; // match each level
+
+      strengthText.innerText = "Strength: " + levels[strength] + " " + emojis[strength];
+
+      // Suggestions
+      let tips = [];
+      if (!length) tips.push("Make your password at least 8 characters long.");
+      if (!uppercase) tips.push("Add at least one uppercase letter (A–Z).");
+      if (!lowercase) tips.push("Add at least one lowercase letter (a–z).");
+      if (!special) tips.push("Include a special character (!@#$%^&*).");
+
+      if (tips.length === 0) {
+        suggestions.innerText = "Great! Your password meets all conditions.";
+      } else {
+        suggestions.innerHTML = tips.join("<br>");
+      }
+    });
+
+    // Random Password Generator
+    function generatePassword() {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+      let password = "";
+      for (let i = 0; i < 12; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      randomPasswordDiv.innerText = "Suggested Strong Password: " + password;
+    }
+  </script>
+</body>
+</html>

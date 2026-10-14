@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <script src="script.js"></script>
+    <title>SHIBBOLETHS STRENGTH ANALYZER TOOL</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #219150;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 10px;
+            background: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>SHIBBOLETHS STRENGTH ANALYZER TOOL</h1>
+        <p>Secure your digital world by testing your passwords</p>
+    </header>
+
+    <div class="container">
+        <h2>Welcome!</h2>
+        <p>Click below to start analyzing your password strength.</p>
+        <a href="analyzer.html">
+            <button>Start Analyzer</button>
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 | Developed by CSE_4068_PRADEEP</p>
+    </footer>
+</body>
+
+</html>
+<script>
+function generatePersonalizedPassword(userWord, favNumber, favSymbol) {
+  const base = userWord || "User";
+  const num = favNumber || Math.floor(Math.random() * 100);
+  const symbol = favSymbol || "!";
+
+  // Random filler characters for extra strength
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let filler = "";
+  for (let i = 0; i < 6; i++) {
+    filler += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+
+  // Construct password suggestion
+  let password = 
+    base.charAt(0).toUpperCase() + 
+    base.slice(1) + 
+    num + 
+    symbol + 
+    filler;
+    <body>
+  <header>...</header>
+
+  <div class="container">
+    <h2>Welcome!</h2>
+    <p>Click below to start analyzing your password strength.</p>
+    <div class="lock-icon">🔒</div>
+    <a href="analyzer.html">
+      <button>Start Analyzer</button>
+    </a>
+  </div>
+
+  <footer>...</footer>
+</body>
+
+
+  return password;
+}
+
+// Example usage:
+console.log(generatePersonalizedPassword("Pradeep", 68, "@"));
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SHIBBOLETHS STRENGTH ANALYSER TOOL</title>
+  <style>
+    .banner {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .banner img {
+      max-width: 80%;   /* scales nicely */
+      height: auto;
+    }
+    h1 {
+      text-transform: uppercase; /* makes title all caps */
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <!-- Replace with your actual image path -->
+    <img src="E3KDokWoXm41cat92RSe9.png" alt="Security Illustration">
+    <h1>SHIBBOLETHS STRENGTH ANALYSER TOOL</h1>
+  </div>
+
+  <!-- Your analyzer UI goes here -->
+</body>
+</html>
